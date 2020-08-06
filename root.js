@@ -82,6 +82,10 @@ function shuffler(diseases) {
     symptoms[wildCard] = temp;
   }
 
+  symptoms = symptoms.filter(
+    (value, index) => symptoms.indexOf(value) === index
+  );
+
   return symptoms;
 }
 
