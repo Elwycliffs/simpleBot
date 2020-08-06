@@ -55,7 +55,9 @@ function analytics(data) {
 
   if (metrics[_diseases[maxIndex]] > 0 && max !== min) {
     console.log(
-      `\nYou most likely have ${_diseases[maxIndex]} and least likely have ${_diseases[minIndex]}`
+      `\nYou most likely have ${_diseases[maxIndex]} and ${
+        Object.keys(diseases).length > 2 ? "least" : "less"
+      } likely have ${_diseases[minIndex]}`
     );
   } else if (max > 0 && max === min) {
     console.log(
