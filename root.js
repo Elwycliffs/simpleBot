@@ -57,12 +57,12 @@ function analytics(data) {
     console.log(
       `\nYou most likely have ${_diseases[maxIndex]} and least likely have ${_diseases[minIndex]}`
     );
-  } else if (max === min) {
+  } else if (max > 0 && max === min) {
     console.log(
       `\nSorry we cannot determine you current ailment. You probably suffer from ${_diseases[maxIndex]}`
     );
   } else {
-    console.log(`\nYou are probably just paranoid...`);
+    console.log(`\nNo Symptom set. You are probably just paranoid...`);
   }
 }
 
@@ -124,4 +124,4 @@ function main() {
 }
 
 main();
-const symptoms = prompt();
+prompt();
