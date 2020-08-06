@@ -90,20 +90,20 @@ function shuffler(diseases) {
 }
 
 let count = 0;
-const data = shuffler(diseases);
-const activeSymptomps = [];
+const symptoms = shuffler(diseases);
+const activeSymptoms = [];
 
 function prompt() {
-  _prompt.question(`Have you noticed ${data[count]}? `, (answer) => {
+  _prompt.question(`Have you noticed ${symptoms[count]}? `, (answer) => {
     if (
       String(answer).toUpperCase() === "exit".toUpperCase() ||
-      count === data.length - 1
+      count === symptoms.length - 1
     ) {
       _prompt.close();
-      return analytics(activeSymptomps);
+      return analytics(activeSymptoms);
     } else {
       if (String(answer).toUpperCase() === "Y") {
-        activeSymptomps.push(data[count]);
+        activeSymptoms.push(symptoms[count]);
       }
 
       count += 1;
@@ -120,12 +120,14 @@ function main() {
   console.log(
     `Below are some common Symptoms for the diseases ${Object.keys(
       diseases
+    ).join(
+      ", "
     )}.\nKindly answer the questions with a Y for YES, and Enter for NO to get a complete analysis.\nType exit when you're ready to quit.`
   );
   console.log(
     "-----------------------------------------------------------------------------------"
   );
+  prompt();
 }
 
 main();
-prompt();
